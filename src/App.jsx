@@ -1,14 +1,14 @@
+import { useState } from 'react';
 import './App.scss';
 import jobs from './data/jobs.json';
 
-let displayKind = 'full';
-
-const handleToggleView = () => {
-	displayKind = displayKind === 'full' ? 'list' : 'full';
-	console.log(displayKind);
-}
-
 function App() {
+	const [displayKind, setDisplayKind] = useState('full');
+
+	const handleToggleView = () => {
+		setDisplayKind(displayKind === 'full' ? 'list' : 'full');
+	};
+
 	return (
 		<div className="App">
 			<h1>Job Application Process</h1>
@@ -31,7 +31,9 @@ function App() {
 				<ul className="jobsList">
 					{jobs.map((job, index) => {
 						return (
-							<li key={index} className="job"><a href={job.url}>{job.position}</a></li>
+							<li key={index} className="job">
+								<a href={job.url}>{job.position}</a>
+							</li>
 						);
 					})}
 				</ul>
