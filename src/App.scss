@@ -11,9 +11,17 @@ body {
 				padding: 20px;
 				margin: 0 0 20px 0;
 
-				.position {
-					a {
-						color: rgb(192, 111, 45);
+				.header {
+					display: flex;
+					justify-content: space-between;
+					.position {
+						a {
+							color: rgb(192, 111, 45);
+						}
+					}
+
+					.status {
+						background-color: #aaa;
 					}
 				}
 
