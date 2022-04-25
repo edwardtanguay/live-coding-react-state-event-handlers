@@ -16,8 +16,25 @@ function App() {
 		setDisplayKind(displayKind === 'full' ? 'list' : 'full');
 	};
 
-	const handleStatusChange = () => {
-		console.log('changing status');
+	const handleStatusChange = (job) => {
+		switch (job.status) {
+			case 'send':
+				job.status = 'wait';
+				break;
+			case 'wait':
+				job.status = 'interview';
+				break;
+			case 'interview':
+				job.status = 'declined';
+				break;
+			case 'declined':
+				job.status = 'accepted';
+				break;
+			case 'accepted':
+				job.status = 'send';
+				break;
+		}
+		setJobs([...jobs]);
 	}
 
 	return (
@@ -33,7 +50,7 @@ function App() {
 									<div className="position">
 										<a href={job.url}>{job.position}</a>
 									</div>
-									<button onClick={handleStatusChange} className="status">{job.status}</button>
+									<button onClick={() => handleStatusChange(job)} className="status">{job.status}</button>
 								</div>
 								<div className="skills">{job.skills}</div>
 								<div className="bulkText">{job.bulkText}</div>
