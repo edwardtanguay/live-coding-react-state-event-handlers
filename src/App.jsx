@@ -1,12 +1,18 @@
 import './App.scss';
 import jobs from './data/jobs.json';
 
-const displayKind = 'list';
+let displayKind = 'full';
+
+const handleToggleView = () => {
+	displayKind = displayKind === 'full' ? 'list' : 'full';
+	console.log(displayKind);
+}
 
 function App() {
 	return (
 		<div className="App">
 			<h1>Job Application Process</h1>
+			<button onClick={handleToggleView}>Toggle View</button>
 			{displayKind === 'full' ? (
 				<div className="jobs">
 					{jobs.map((job, index) => {
