@@ -3,13 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port=3557",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "sass": "^1.50.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
